@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clarence Today — Local News for Clarence, NY</title>
+<meta name="description" content="The latest news and events taking place in the town of Clarence, New York.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f1ede2;
+    --paper-dark: #e7e1d1;
+    --ink: #24241f;
+    --ink-soft: #52514a;
+    --masthead: #2b3a2a;
+    --masthead-2: #3d4f3a;
+    --brick: #a63d2f;
+    --gold: #b6862c;
+    --rule: #c9c2ab;
+    --card: #fbf9f3;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    line-height:1.55;
+  }
+  a{color:inherit;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* Masthead */
+  .banner{
+    background:repeating-linear-gradient(45deg, var(--masthead) 0 2px, var(--masthead-2) 2px 4px);
+    color:#efe9d8;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:7px 12px;
+  }
+  header.masthead{
+    background:var(--paper);
+    border-bottom:5px solid var(--ink);
+    padding:38px 0 18px;
+  }
+  .masthead-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:10px;
+    margin-bottom:18px;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:clamp(48px, 9vw, 92px);
+    text-align:center;
+    margin:0;
+    letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .tagline{
+    text-align:center;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    letter-spacing:.05em;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .rule-triple{
+    border:none;
+    border-top:3px double var(--ink);
+    margin:20px 0 0;
+  }
+
+  /* Nav / issue jump */
+  nav.issues{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+    padding:14px 0;
+    color:var(--ink-soft);
+  }
+  nav.issues a{text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;}
+  nav.issues a:hover{border-color:var(--brick); color:var(--brick);}
+
+  main{padding:20px 0 60px;}
+
+  .issue{
+    background:var(--card);
+    border:1px solid var(--rule);
+    margin-bottom:44px;
+    padding:32px clamp(20px,4vw,48px) 40px;
+  }
+  .issue-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--brick);
+    margin-bottom:6px;
+  }
+  .issue-eyebrow::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+  .issue h2{
+    font-family:'Fraunces',serif;
+    font-size:clamp(26px,4vw,34px);
+    font-weight:600;
+    margin:0 0 4px;
+  }
+  .byline{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+
+  .story{
+    padding:18px 0;
+    border-top:1px solid var(--rule);
+  }
+  .story:first-of-type{border-top:none; padding-top:6px;}
+  .story h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0 0 8px;
+  }
+  .story p{
+    margin:0 0 8px;
+    color:var(--ink);
+    font-size:16px;
+  }
+  .story a.read-more{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--brick);
+    text-decoration:none;
+    border-bottom:1px solid var(--brick);
+  }
+
+  .section-label{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin:26px 0 10px;
+  }
+  ul.events{list-style:none; margin:0; padding:0;}
+  ul.events li{
+    display:flex;
+    gap:14px;
+    padding:10px 0;
+    border-top:1px dotted var(--rule);
+    font-size:15px;
+  }
+  ul.events li:first-child{border-top:none;}
+  ul.events li .dot{color:var(--brick); font-family:'Fraunces',serif; font-weight:700;}
+  ul.events li a{color:var(--brick); text-decoration:none; border-bottom:1px solid currentColor;}
+
+  .issue-link{
+    display:inline-block;
+    margin-top:22px;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--ink);
+    text-decoration:none;
+    border:1px solid var(--ink);
+    padding:9px 16px;
+  }
+  .issue-link:hover{background:var(--ink); color:var(--card);}
+
+  footer{
+    text-align:center;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--ink-soft);
+    padding:30px 0 50px;
+    border-top:1px solid var(--rule);
+  }
+  footer a{color:var(--brick); text-decoration:none;}
+
+  @media (max-width:600px){
+    nav.issues{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">Clarence, New York · Est. Beehiiv Edition · Updated Weekly</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-top">
+      <span>Vol. Local &amp; Free</span>
+      <span>The Town of Clarence, NY</span>
+    </div>
+    <h1 class="title">Clarence Today</h1>
+    <div class="tagline">News, happenings, and buzz from our neighborhood</div>
+  </div>
+  <div class="wrap"><hr class="rule-triple"></div>
+  <nav class="issues wrap">
+    <a href="#issue-aug21">Aug 21</a>
+    <a href="#issue-aug14">Aug 14</a>
+    <a href="#issue-aug7">Aug 7</a>
+    <a href="https://clarencetoday.beehiiv.com/archive" target="_blank" rel="noopener">Full Archive →</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- AUG 21 ISSUE -->
+  <article class="issue" id="issue-aug21">
+    <div class="issue-eyebrow">Latest Issue</div>
+    <h2>This Week in Clarence</h2>
+    <div class="byline">By Brian McGann · August 21, 2026</div>
+
+    <div class="story">
+      <h3>Recap of this week's Town Board meeting</h3>
+      <p>The Clarence Town Board held their monthly meeting on Wednesday, August 19th, including proposals for new projects and additions from Flavors of India, STEM Automotive, Zoe Restaurant, and more.</p>
+      <a class="read-more" href="https://www4.erie.gov/clarence/sites/www4.erie.gov.clarence/files/2026-08/tbar-8-19-26-accessibility-ok-except-for-2-items.pdf" target="_blank" rel="noopener">Read the recap →</a>
+    </div>
+
+    <div class="story">
+      <h3>Buffalo Cars and Coffee holds their Summer Special</h3>
+      <p>If you noticed a lot of classic cars near Eastern Hills Mall on Sunday, it wasn't your imagination. Buffalo Cars and Coffee held their "Summer Special" on August 9th, bringing together automotive enthusiasts of all levels. The final event of the year is September 27th.</p>
+      <a class="read-more" href="https://buffalocarsandcoffee.com/" target="_blank" rel="noopener">Learn more →</a>
+    </div>
+
+    <div class="story">
+      <h3>First day of school is around the corner</h3>
+      <p>The school year begins Tuesday, September 8th. Schedules will be available on PowerSchool beginning August 24th. Planning ahead: graduation for the Class of 2027 will be held Thursday, June 24th.</p>
+    </div>
+
+    <div class="section-label">Upcoming Events</div>
+    <ul class="events">
+      <li><span class="dot">•</span> <span><strong>Clarence Hollow Farmers' Market</strong> — Aug 22, 8am–1pm, 10717 Main St. Butterfly release celebration &amp; live music from Maria Sebastian. <a href="http://www.clarencefarmersmarket.com/events.html" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>Buffalo Lit</strong> — Aug 25, 6–8pm, Clarence Honey House. Five authors who lived and worked in Buffalo in the 19th &amp; early 20th centuries. <a href="https://www.noillusionstoursbuffalo.com/tour-descriptions" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>Together We Walk 4TeamBrock</strong> — Sept 20, 7am–7pm, Clarence High School. Free event for mental health awareness &amp; suicide prevention. <a href="https://4teambrock.com/together-we-walk" target="_blank" rel="noopener">Info</a></span></li>
+    </ul>
+
+    <a class="issue-link" href="https://clarencetoday.beehiiv.com/p/clarence-today-81f6" target="_blank" rel="noopener">Read the full issue on Beehiiv →</a>
+  </article>
+
+  <!-- AUG 14 ISSUE -->
+  <article class="issue" id="issue-aug14">
+    <div class="issue-eyebrow">Previous Issue</div>
+    <h2>This Week in Clarence</h2>
+    <div class="byline">By Brian McGann · August 14, 2026</div>
+
+    <div class="story">
+      <h3>Clarence schools ranked #2 in Buffalo area</h3>
+      <p>In the latest rankings from Niche.com, Clarence was ranked the #2 best school district in the Buffalo area, receiving an overall Niche grade of A.</p>
+      <a class="read-more" href="https://www.niche.com/k12/d/clarence-central-school-district-ny/" target="_blank" rel="noopener">See the rankings →</a>
+    </div>
+
+    <div class="story">
+      <h3>Annual Labor Day Fair schedule released</h3>
+      <p>The Labor Day Fair is coming soon — this year's event runs September 4th through 7th.</p>
+      <a class="read-more" href="http://ccvfc.org/index.php/labor-day-fair" target="_blank" rel="noopener">See the full schedule →</a>
+    </div>
+
+    <div class="story">
+      <h3>Two local Mexican restaurants close</h3>
+      <p>Cielito Lindo Taqueria at 4125 Transit Road in Williamsville closed August 14th, though it will continue operating its food truck. El Ranchito Mexican Restaurant at 9780 Main Street also closed earlier in the week.</p>
+    </div>
+
+    <div class="story">
+      <h3>Taste of Clarence 2026 winners announced</h3>
+      <p>Highlights: Best Entree — Ave 29 (Chicken Greek Wrap); Best Dessert — Genevieve's Cheesecake &amp; Bakeshop (Frozen Strawberry Crunch Cheesecake on a Stick); People's Choice — Hayes Seafood House; Best Overall Item — Come Home to Cortese Cooking School (Caponata).</p>
+      <a class="read-more" href="https://www.facebook.com/share/p/1BgvuJ8MvN/" target="_blank" rel="noopener">See all winners →</a>
+    </div>
+
+    <div class="section-label">Upcoming Events</div>
+    <ul class="events">
+      <li><span class="dot">•</span> <span><strong>Summerfest</strong> — Aug 23, 12–4pm, Clarence Town Park, 10405 Main St. Food, games, bounce houses, animals &amp; more. <a href="https://www4.erie.gov/clarence/slideshow/summerfest-2026" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>3rd Annual Jay Arno Memorial Ride</strong> — Aug 16, 9am, starting at Clarence Fire Company. Benefits the FAM Foundation. <a href="https://reasonstoride.com/event/3rd-annual-jay-arno-memorial-motorcycle-ride/" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>Comedy Night in Clarence</strong> — Aug 20, 7pm, Penny Lane, 10255 Main St. <a href="https://www.eventbrite.com/e/crack-you-up-monthly-comedy-night-weekend-style-tickets-1969991748350" target="_blank" rel="noopener">Tickets</a></span></li>
+    </ul>
+
+    <a class="issue-link" href="https://clarencetoday.beehiiv.com/p/clarence-today-e329" target="_blank" rel="noopener">Read the full issue on Beehiiv →</a>
+  </article>
+
+  <!-- AUG 7 ISSUE -->
+  <article class="issue" id="issue-aug7">
+    <div class="issue-eyebrow">Previous Issue</div>
+    <h2>This Week in Clarence</h2>
+    <div class="byline">By Brian McGann · August 7, 2026</div>
+
+    <div class="story">
+      <h3>Eastern Hills Mall redevelopment update</h3>
+      <p>The redevelopment will include about 1,500 residential units, one million square feet of office and medical space, restaurants, retail businesses, hotels, and a park.</p>
+      <a class="read-more" href="https://www.wkbw.com/news/local-news/northtowns/a-huge-asset-for-this-area-eastern-hills-mall-redevelopment-update" target="_blank" rel="noopener">Read the update →</a>
+    </div>
+
+    <div class="story">
+      <h3>Bills fans stunned to see old Highmark Stadium in rubble</h3>
+      <p>The old Highmark Stadium is now completely demolished. Fans were stunned to see the wreckage of the Bills' former home.</p>
+      <a class="read-more" href="https://www.audacy.com/wgr550/sports/bills/bills-fans-stadium-rubble" target="_blank" rel="noopener">Read the full story →</a>
+    </div>
+
+    <div class="story">
+      <h3>Car thefts on the rise in Clarence</h3>
+      <p>Between July 18th and 21st, 11 cars were reported stolen in Clarence. Police say thieves are using key fob cloning devices that can steal a vehicle without the owner's fob being present.</p>
+      <a class="read-more" href="https://www.wivb.com/news/crime/police-car-thefts-on-the-rise-in-clarence" target="_blank" rel="noopener">Read more →</a>
+    </div>
+
+    <div class="story">
+      <h3>New dessert spot, Main and Mango, coming to Clarence</h3>
+      <p>A new dessert spot specializing in New Zealand–style ice cream will soon open in Clarence.</p>
+      <a class="read-more" href="https://clarencetoday.beehiiv.com/main-and-mango" target="_blank" rel="noopener">More info →</a>
+    </div>
+
+    <div class="section-label">Upcoming Events</div>
+    <ul class="events">
+      <li><span class="dot">•</span> <span><strong>Pizza Night on the Farm</strong> — Every Wednesday in August, 5–8:30pm, Kelkenberg Farm. Wood-fired pizza, live music, Resurgence Brewing. <a href="https://www.facebook.com/profile.php?id=100064717864346" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>Bella Kids Baby &amp; Kids Consignment Sale</strong> — Aug 7–9, 2040 Wehrle Dr. <a href="https://www.facebook.com/events/961119059972856" target="_blank" rel="noopener">Info</a></span></li>
+      <li><span class="dot">•</span> <span><strong>2026 Mark Studios Annual Pig Roast</strong> — Aug 15, 12–4pm, 10815 Bodine Rd. Live music, food by Smoking Rail BBQ. <a href="https://www.facebook.com/events/27706590925632708" target="_blank" rel="noopener">Info</a></span></li>
+    </ul>
+
+    <a class="issue-link" href="https://clarencetoday.beehiiv.com/p/clarence-today-0b01" target="_blank" rel="noopener">Read the full issue on Beehiiv →</a>
+  </article>
+
+</main>
+
+<footer class="wrap">
+  <p>Clarence Today — the latest news and events taking place in the town of Clarence, New York.</p>
+  <p>Read every issue and subscribe at <a href="https://clarencetoday.beehiiv.com/" target="_blank" rel="noopener">clarencetoday.beehiiv.com</a></p>
+</footer>
+
+</body>
+</html>
