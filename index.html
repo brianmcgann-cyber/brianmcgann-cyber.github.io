@@ -79,6 +79,22 @@
     color:var(--ink-soft);
     margin-top:6px;
   }
+  .subscribe-link{
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#efe9d8;
+    background:var(--brick);
+    text-decoration:none;
+    padding:7px 14px;
+    border:1px solid var(--brick);
+  }
+  .subscribe-link:hover{
+    background:transparent;
+    color:var(--brick);
+  }
   .rule-triple{
     border:none;
     border-top:3px double var(--ink);
@@ -225,7 +241,7 @@
   <div class="wrap">
     <div class="masthead-top">
       <span>Vol. Local &amp; Free</span>
-      <span>The Town of Clarence, NY</span>
+      <a class="subscribe-link" href="https://clarencetoday.beehiiv.com/" target="_blank" rel="noopener">Subscribe for Free</a>
     </div>
     <h1 class="title">Clarence Today</h1>
     <div class="tagline">News, happenings, and buzz from our neighborhood</div>
