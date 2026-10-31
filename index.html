@@ -303,6 +303,10 @@
   @media (max-width:600px){
     nav.issues{gap:16px;}
   }
+  .shop-ad{margin:8px auto 40px;max-width:420px;text-align:center;}
+  .shop-ad-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 6px;}
+  .shop-ad a{display:block;border-bottom:none;line-height:0;}
+  .shop-ad img{width:100%;height:auto;display:block;border:1px solid var(--ink);}
 </style>
 </head>
 <body>
@@ -388,6 +392,14 @@
 
     <a class="issue-link" href="https://clarencetoday.beehiiv.com/" target="_blank" rel="noopener">Subscribe for free to the Clarence Today newsletter →</a>
   </article>
+
+  <!-- SHOP BANNER -->
+  <aside class="shop-ad" aria-label="Clarence Today merchandise">
+    <p class="shop-ad-label">Clarence Today Store</p>
+    <a href="https://clarence-today-shop.fourthwall.com/?utm_source=clarencetoday.com&amp;utm_medium=banner&amp;utm_campaign=shop_banner" target="_blank" rel="noopener" onclick="try{gtag('event','shop_banner_click');}catch(e){}">
+      <img src="shop-banner.jpg" width="700" height="583" loading="lazy" alt="Show your Clarence pride! Clarence, New York hoodie, T-shirt and mug. Shop now.">
+    </a>
+  </aside>
 
   <!-- OCT 23 ISSUE -->
   <article class="issue" id="issue-oct23">
